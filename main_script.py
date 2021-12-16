@@ -83,13 +83,13 @@ mailing_list=Participant.mail_list()
 mailing_list
 
 # ## 5. Formatting and sending the emails to the mailing list.
-# for i in mailing_list:
-#     print(i[0], 'Secret santa 2021', f'Καλησπέρα {Participant.email_to_name_dict.get(i[0])}, πρέπει να πάρεις δώρο για τον/την {i[1]}.')
-#     time.sleep(0.5)
+for i in mailing_list:
+    print(i[0], 'Secret santa 2021', f'Καλησπέρα {Participant.email_to_name_dict.get(i[0])}, πρέπει να πάρεις δώρο για τον/την {i[1]}.')
+    #time.sleep(0.5)
 
 #Using the ezgmail library
 for i in mailing_list:
-    ezgmail.send(i[0], 'Secret Santa 2021 - Αποτελέσμα κλήρωσης', f'<img src="https://images.unsplash.com/photo-1479722842840-c0a823bd0cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" width="600" height="375"> \
+    ezgmail.send(i[0], '[Ορθή επανάληψη] Secret Santa 2021 - Αποτελέσμα κλήρωσης', f'<img src="https://images.unsplash.com/photo-1479722842840-c0a823bd0cd6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" width="600" height="375"> \
         <h1>Ευχαριστώ για την συμμετοχή σου στο φετινό secret santa!</h1> <p>Γειά σου {Participant.email_to_name_dict.get(i[0])}! Πρέπει να αγοράσεις δώρο για τον/την <b>{i[1]}.</b></p> \
             <p>Θυμήσου! Το χρηματικό όριο για το δώρο σου είναι τα <b>20€</b>. Η ανταλλαγή των δώρων θα γίνει σε μελλονιτκή ημερομηνία που θα αποφασιστεί απο κοινού.</p> <h1>Χαρούμενες γιορτές λοιπόν, μυστικέ αγιοβασίλη!</h1>',\
                 mimeSubtype='html')
